@@ -22,17 +22,27 @@ productsDiv.addEventListener("click", (event) => {
     // console.log("minus btn is clicked!");
     if (event.target.parentElement.querySelector(".quantity").innerText > 1) {
       event.target.parentElement.querySelector(".quantity").innerText--;
+      calculateProductPrice();
+      calculateCartPrice();
     } else {
       if (confirm("Product will be remowed?")) {
         event.target.parentElement.parentElement.parentElement.remove();
+        calculateCartPrice();
       }
     }
   } else if (event.target.classList.contains("fa-plus")) {
     event.target.previousElementSibling.innerText++;
+    calculateCartPrice();
+    calculateProductPrice();
     // console.log("plus btn is clicked");
   } else if (event.target.className == "remove-product") {
     // console.log("remove btn is clicked");
+    event.target.parentElement.parentElement.parentElement.remove();
   } else {
     // console.log("other element is clicked");
   }
 });
+
+const calculateProductPrice = () => {};
+
+const calculateCartPrice = () => {};
